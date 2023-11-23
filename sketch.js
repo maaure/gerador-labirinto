@@ -86,19 +86,12 @@ function setup() {
     }
   }
 
-  let initial = g.getVertex(0);
-  initial.setVisited(true);
-  stack.push(initial);
+  let current = g.getVertex(0);
+  current.setVisited(true);
+  stack.push(current);
 
-  drawGrid();
-}
-
-function draw() {
-  background(220);
-  drawGrid();
-
-  if (stack.length > 0) {
-    let current = stack.pop();
+  while (stack.length > 0) {
+    current = stack.pop();
     const { x, y } = coordinates(current.id);
     rect(x * dim, y * dim, dim);
     const paths = current
@@ -113,4 +106,28 @@ function draw() {
       stack.push(p.neighbor);
     }
   }
+
+  drawGrid();
+}
+
+function draw() {
+  background(220);
+  drawGrid();
+  noLoop();
+  /*   if (stack.length > 0) {
+    let current = stack.pop();
+    const { x, y } = coordinates(current.id);
+    rect(x * dim, y * dim, dim);
+    const paths = current
+      .getNeighborsPaths()
+      .filter((p) => !p.neighbor.visited);
+    if (paths.length > 0) {
+      stack.push(current);
+      const index = int(random(0, paths.length));
+      let p = paths[index];
+      g.removeWall(current, p.neighbor);
+      p.neighbor.setVisited(true);
+      stack.push(p.neighbor);
+    }
+  } */
 }
