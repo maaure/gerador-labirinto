@@ -22,7 +22,7 @@ class Graph {
     const startVertex = this.getVertex(startVertexId);
     const endVertex = this.getVertex(endVertexId);
 
-    if (this.isConnected(startVertex, endVertex)) return;
+    if (this.isConnected(startVertex, endVertexId)) return;
 
     if (!startVertex || !endVertex) {
       throw new Error("Start or end vertex does not exist.");
@@ -35,6 +35,11 @@ class Graph {
       const reverseEdge = new Edge(endVertex, startVertex, weight);
       endVertex.addEdge(reverseEdge);
     }
+  }
+
+  removeWall(startVertex, endVertex) {
+    startVertex.getEdgeTo(endVertex.id).isWall = false;
+    endVertex.getEdgeTo(startVertex.id).isWall = false;
   }
 
   getVertexes() {
