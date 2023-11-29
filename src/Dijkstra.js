@@ -4,7 +4,7 @@ class Dijkstra {
 		this.visited = [];
 	}
 
-	solve(vertexId = 0) {
+	distances(vertexId = 0) {
 		const pq = new PriorityQueue();
 		const start = this.graph.getVertex(vertexId);
 		start.setDistance(0);
@@ -23,9 +23,20 @@ class Dijkstra {
 					if (cost < n.getDistance()) {
 						n.setDistance(cost);
 						pq.enqueue(n, cost);
+						n.setPrev(vertex);
 					}
 				}
 			}
 		}
+	}
+
+	path(id) {
+		const path = [];
+		let current = this.graph.getVertex(id);
+		while (current) {
+			path.push(current);
+			current = current.getPrev();
+		}
+		return path.reverse();
 	}
 }

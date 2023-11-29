@@ -1,9 +1,11 @@
+const resolution = 700;
+const dim = 35;
+const length = resolution / dim;
+
 let g = {};
 let solver = {};
-
-const resolution = 700;
-const dim = 70;
-const length = resolution / dim;
+let pathIndex = 0;
+let solution = [];
 
 function getNeighborsCoordinates(x, y) {
 	let coordinates = [
@@ -46,11 +48,12 @@ function drawGrid() {
 function drawCell(x, y, walls, current) {
 	x = x * dim;
 	y = y * dim;
+	stroke(0);
 	walls[0] && line(x, y, x + dim, y);
 	walls[1] && line(x + dim, y, x + dim, y + dim);
 	walls[2] && line(x, y + dim, x + dim, y + dim);
 	walls[3] && line(x, y, x, y + dim);
-	text(current.getDistance(), x + dim / 2, y + dim / 2);
+	// text(current.getDistance(), x + dim / 2, y + dim / 2);
 }
 
 function getIndex(x, y) {
@@ -113,13 +116,25 @@ function setup() {
 	}
 
 	solver = new Dijkstra(g);
-	solver.solve();
+	solver.distances();
+
+	solution = solver.path(getIndex(resolution / dim - 1, resolution / dim - 1));
+	console.log(solution);
 
 	drawGrid();
 }
 
 function draw() {
 	background(220);
+	const k = pathIndex;
+	for (let i = 0; i < k; i++) {
+		const { x, y } = coordinates(solution[i].id);
+		noStroke();
+		rect(x * dim, y * dim, dim, dim);
+	}
+
+	if (pathIndex < solution.length) {
+		pathIndex++;
+	}
 	drawGrid();
-	// noLoop();
 }

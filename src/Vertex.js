@@ -4,6 +4,7 @@ class Vertex {
 		this.edges = [];
 		this.visited = false;
 		this.distance = Infinity;
+		this.prev = undefined;
 	}
 
 	addEdge(edge) {
@@ -58,5 +59,13 @@ class Vertex {
 				(e) => e.startVertex.id === v || e.endVertex.id === v
 			)[0]
 		);
+	}
+
+	setPrev(prev) {
+		this.prev = prev;
+	}
+
+	getPrev() {
+		return this.prev;
 	}
 }
