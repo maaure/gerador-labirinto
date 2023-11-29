@@ -1,7 +1,8 @@
 class Dijkstra {
-	constructor(graph) {
+	constructor(graph, target) {
 		this.graph = graph;
 		this.visited = [];
+		this.target = target;
 	}
 
 	distances(vertexId = 0) {
@@ -14,6 +15,7 @@ class Dijkstra {
 			const vertex = pq.dequeue();
 			vertex.setVisited(true);
 
+			if (vertex === this.target) break;
 			const neighbors = vertex.getNeighbors();
 
 			for (let i = 0; i < neighbors.length; i++) {

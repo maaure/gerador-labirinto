@@ -1,5 +1,5 @@
-const resolution = 700;
-const dim = 35;
+const resolution = 600;
+const dim = 20;
 const length = resolution / dim;
 
 let g = {};
@@ -115,13 +115,13 @@ function setup() {
 		g.getVertex(i).setVisited(false);
 	}
 
-	solver = new Dijkstra(g);
+	let endIndex = getIndex(resolution / dim - 1, resolution / dim - 1);
+
+	solver = new Dijkstra(g, g.getVertex(endIndex));
 	solver.distances();
 
-	solution = solver.path(getIndex(resolution / dim - 1, resolution / dim - 1));
+	solution = solver.path(endIndex);
 	console.log(solution);
-
-	drawGrid();
 }
 
 function draw() {
@@ -130,6 +130,7 @@ function draw() {
 	for (let i = 0; i < k; i++) {
 		const { x, y } = coordinates(solution[i].id);
 		noStroke();
+		fill(k - i, i - k + 200, i + 200);
 		rect(x * dim, y * dim, dim, dim);
 	}
 
