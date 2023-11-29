@@ -1,3 +1,5 @@
+
+
 let g = {};
 
 const resolution = 730;
@@ -89,7 +91,7 @@ function setup() {
   let current = g.getVertex(0);
   current.setVisited(true);
   stack.push(current);
-
+/* 
   while (stack.length > 0) {
     current = stack.pop();
     const { x, y } = coordinates(current.id);
@@ -105,7 +107,7 @@ function setup() {
       p.neighbor.setVisited(true);
       stack.push(p.neighbor);
     }
-  }
+  } */
 
   drawGrid();
 }
@@ -113,8 +115,8 @@ function setup() {
 function draw() {
   background(220);
   drawGrid();
-  noLoop();
-  /*   if (stack.length > 0) {
+  // noLoop();
+  if (stack.length > 0) {
     let current = stack.pop();
     const { x, y } = coordinates(current.id);
     rect(x * dim, y * dim, dim);
@@ -129,5 +131,5 @@ function draw() {
       p.neighbor.setVisited(true);
       stack.push(p.neighbor);
     }
-  } */
+  }
 }
