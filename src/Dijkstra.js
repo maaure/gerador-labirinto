@@ -14,7 +14,8 @@ class Dijkstra {
 		while (!pq.isEmpty()) {
 			const vertex = pq.dequeue();
 			vertex.setVisited(true);
-
+			this.visited.push(vertex);
+			console.log(vertex);
 			if (vertex === this.target) break;
 			const neighbors = vertex.getNeighbors();
 
@@ -40,5 +41,9 @@ class Dijkstra {
 			current = current.getPrev();
 		}
 		return path.reverse();
+	}
+
+	getVisited() {
+		return this.visited;
 	}
 }

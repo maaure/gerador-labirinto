@@ -48,6 +48,7 @@ function drawGrid() {
 function drawCell(x, y, walls, current) {
 	x = x * dim;
 	y = y * dim;
+
 	stroke(0);
 	walls[0] && line(x, y, x + dim, y);
 	walls[1] && line(x + dim, y, x + dim, y + dim);
@@ -68,8 +69,8 @@ function coordinates(id) {
 		y,
 	};
 }
-let stack = [];
 
+let visited = [];
 function setup() {
 	createCanvas(resolution, resolution);
 	g = new Graph();
@@ -90,6 +91,7 @@ function setup() {
 		}
 	}
 
+	let stack = [];
 	let current = g.getVertex(0);
 	current.setVisited(true);
 	stack.push(current);
@@ -121,12 +123,21 @@ function setup() {
 	solver.distances();
 
 	solution = solver.path(endIndex);
-	console.log(solution);
+
+	visited = solver.getVisited();
 }
 
 function draw() {
 	background(220);
 	const k = pathIndex;
+	/* 
+	for (let i = 0; i < visited.length; i++) {
+		const { x, y } = coordinates(visited[i].id);
+		noStroke();
+		fill(150);
+		rect(x * dim, y * dim, dim, dim);
+	} */
+
 	for (let i = 0; i < k; i++) {
 		const { x, y } = coordinates(solution[i].id);
 		noStroke();
