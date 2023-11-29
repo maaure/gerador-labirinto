@@ -1,0 +1,23 @@
+{
+  "name": "graphp5js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Edge.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server -o"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maaure/graphp5js.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maaure/graphp5js/issues"
+  },
+  "homepage": "https://github.com/maaure/graphp5js#readme",
+  "dependencies": {
+    "http-server": "^14.1.1"
+  }
+}
