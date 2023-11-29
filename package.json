@@ -1,23 +1,23 @@
 {
-  "name": "graphp5js",
-  "version": "1.0.0",
-  "description": "",
-  "main": "Edge.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "live-server"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/maaure/graphp5js.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/maaure/graphp5js/issues"
-  },
-  "homepage": "https://github.com/maaure/graphp5js#readme",
-  "devDependencies": {
-    "live-server": "^1.2.2"
-  }
+	"name": "gerador-labirinto",
+	"version": "1.0.0",
+	"description": "",
+	"main": "Edge.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"dev": "live-server"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/maaure/gerador-labirinto.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/maaure/gerador-labirinto/issues"
+	},
+	"homepage": "https://github.com/maaure/gerador-labirinto#readme",
+	"devDependencies": {
+		"live-server": "^1.2.2"
+	}
 }

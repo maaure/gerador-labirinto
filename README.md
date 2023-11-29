@@ -5,9 +5,36 @@ Este projeto implementa um gerador de labirinto e um solucionador usando o algor
 ## Exemplos
 
 <img src="docs/ex1.gif" height="350px"/><br/>
-
 <img src="docs/ex3.gif" height="350px"/><br/>
 <img src="docs/ex2.gif" height="350px"/><br/>
+
+## Para executar o gerador de labirinto:
+
+1. **Clone o repositório**
+
+   ```bash
+   git clone https://github.com/maaure/gerador-labirinto.git
+   ```
+
+2. **Instale as dependências**
+
+   Vá para o diretório do projeto e execute:
+
+   ```bash
+   npm install
+   ```
+
+3. **Inicie o servidor de desenvolvimento**
+
+   Use o comando:
+
+   ```bash
+   npm run dev
+   ```
+
+4. **Visualize o gerador de labirinto**
+
+   Abra seu navegador e acesse `http://localhost:8080` (ou a porta indicada no terminal).
 
 ## Contribuições
 
